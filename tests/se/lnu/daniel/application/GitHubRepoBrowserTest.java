@@ -39,9 +39,9 @@ public class GitHubRepoBrowserTest {
 		GitHubRepoBrowser sut = new GitHubRepoBrowser(db, client);
 		List<Project> fromDB = new ArrayList<Project>();
 		List<Project> fromClient = new ArrayList<Project>();
-		fromDB.add(new Project(0, "", new String[1]));
-		fromDB.add(new Project(1, "", new String[1]));
-		fromDB.add(new Project(2, "", new String[1]));
+		fromDB.add(new Project(0, ""));
+		fromDB.add(new Project(1, ""));
+		fromDB.add(new Project(2, ""));
 		
 		
 		

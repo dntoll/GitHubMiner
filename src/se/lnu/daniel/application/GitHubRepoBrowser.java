@@ -19,7 +19,7 @@ public class GitHubRepoBrowser {
 		List<Project> projectsFromDB =  projectDatabase.getProjects();
 		List<Project> projectsFromClient =  ghClient.getProjects();
 		
-		projectDatabase.addProjects(projectsFromClient);
+		
 		
 		ret.addAll(projectsFromDB);
 		ret.addAll(projectsFromClient);

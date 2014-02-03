@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -46,10 +47,11 @@ public class GitHubAPITest {
 
 	@Test
 	public void testGetRepositories() {
-		fail("Not yet implemented");
+		GitHubAPI sut = new GitHubAPI("key");
+		List<Project> p = sut.getRepositories(1);
 	}
 
-	@Test
+	/*@Test
 	public void testApi() {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		HttpGet httpget = new HttpGet("https://api.github.com/repositories");
@@ -125,5 +127,5 @@ public class GitHubAPITest {
 		         System.out.println(tree.getValueType().toString());
 		         break;
 		   }
-		}
+		}*/
 }

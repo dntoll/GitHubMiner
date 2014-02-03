@@ -20,7 +20,11 @@ public class ProjectDatabase {
 	
 	public ProjectDatabase(String fileName) throws IOException {
 		this.fileName = fileName;
-		allProjects = myGetMethods();
+		try {
+			allProjects = myGetMethods();
+		} catch (FileNotFoundException e) {
+			allProjects = new ArrayList<Project>();
+		}
 	}
 
 	public List<Project> getProjects() throws IOException {
@@ -35,9 +39,7 @@ public class ProjectDatabase {
 		List<String[]> lines= reader.readAll();
 		
 		for(String[] line : lines) {
-			
-			String[] languages = line[2].split(",");
-			Project p = new Project(Integer.parseInt(line[0]), line[1], languages);
+			Project p = new Project(Integer.parseInt(line[0]), line[1]);
 			ret.add(p);
 			if (p.getID() > lastID)
 				lastID = p.getID();
@@ -52,18 +54,12 @@ public class ProjectDatabase {
 	public void addProjects(List<Project> fromClient) throws IOException {
 		CSVWriter writer = new CSVWriter(new FileWriter(fileName, true), '\t');
 		
-		String[] entries = new String[3];
+		String[] entries = new String[2];
 		for (Project p : fromClient) {
 			entries[0] = "" + p.getID();
 			entries[1] = p.getName();
 			
-			entries[2] = "";
-			String[] languages = p.getLanguages();
-			for(int i = 0; i < languages.length; i++) {
-				entries[2] += languages[i];
-				if (i < languages.length-1)
-					entries[2] += ","; 
-			}
+			
 		    writer.writeNext(entries);
 		    allProjects.add(p);
 		    if (p.getID() > lastID)

@@ -26,14 +26,6 @@ public class ProjectTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void testHasLanguage() {
-		String[] langs = new String[]{"Java", "Foo"};
-		Project sut = new Project(0, "", langs);
-		
-		assertTrue(sut.hasLanguage("Java"));
-		assertTrue(sut.hasLanguage("Foo"));
-		assertFalse(sut.hasLanguage("PHP"));
-	}
+	
 
 }

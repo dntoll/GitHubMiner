@@ -1,7 +1,9 @@
 package se.lnu.daniel.application;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class GitHubProjectClient {
 
@@ -12,27 +14,29 @@ public class GitHubProjectClient {
 		this.api = api;
 	}
 
-	public List<Project> getProjects() {
+	public List<Project> getProjects() throws IOException {
+		Random r = new Random();
 		List<Project> repos = new ArrayList<Project>();
 		int id = db.getLastID();
-		int highestid = id;
-		boolean foundNew = false;
-		
+		//int highestid = id;
+		List<Project> newRepos;
+		int page = 1;
 		do {
-			foundNew = false;
-			List<Project> newRepos = api.getRepositories(highestid);
-			if (newRepos != null) {
 			
-				for (Project p : newRepos) {
+			newRepos = api.getRepositories(page);
+			
+			if (newRepos != null) {
+				repos.addAll(newRepos);
+				db.addProjects(newRepos);
+				/*for (Project p : newRepos) {
 					if (p.getID() > highestid) {
 						highestid = p.getID(); 
-						foundNew = true;
 					}
-					repos.add(p);
-				}
+				}*/
 			}
+			page++;
 		
-		} while (foundNew);
+		} while (newRepos != null && newRepos.size() > 0);
 		
 		return repos;
 	}

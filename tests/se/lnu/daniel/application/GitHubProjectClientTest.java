@@ -4,8 +4,6 @@ package se.lnu.daniel.application;
 import static org.mockito.Mockito.mock;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.when;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +63,7 @@ public class GitHubProjectClientTest {
 		when(db.getLastID()).thenReturn(lastId);
 		
 		List<Project> projects = new ArrayList<Project>();
-		projects.add(new Project(114, "", new String[1]));
+		projects.add(new Project(114, ""));
 		when(api.getRepositories(lastId)).thenReturn(projects);
 		when(api.getRepositories(114)).thenReturn(null);
 				
