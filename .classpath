@@ -4,5 +4,11 @@
 	<classpathentry kind="src" path="tests"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="P:/2dv110/eclipsews/httpcomponents-client-4.3.2/lib/httpclient-4.3.2.jar"/>
+	<classpathentry kind="lib" path="P:/2dv110/eclipsews/httpcomponents-client-4.3.2/lib/httpcore-4.3.1.jar"/>
+	<classpathentry kind="lib" path="P:/2dv110/eclipsews/httpcomponents-client-4.3.2/lib/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="javax.json-1.0.jar"/>
+	<classpathentry kind="lib" path="P:/2dv110/eclipsews/GitHubMiner/mockito-all-1.9.5.jar"/>
+	<classpathentry kind="lib" path="opencsv-2.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
