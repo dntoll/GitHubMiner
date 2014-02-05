@@ -37,11 +37,11 @@ public class GitHubRepoBrowserTest {
 		ProjectDatabase db = mock(ProjectDatabase.class);
 		GitHubProjectClient client = mock(GitHubProjectClient.class);
 		GitHubRepoBrowser sut = new GitHubRepoBrowser(db, client);
-		List<Project> fromDB = new ArrayList<Project>();
-		List<Project> fromClient = new ArrayList<Project>();
-		fromDB.add(new Project(0, ""));
-		fromDB.add(new Project(1, ""));
-		fromDB.add(new Project(2, ""));
+		List<Repository> fromDB = new ArrayList<Repository>();
+		List<Repository> fromClient = new ArrayList<Repository>();
+		fromDB.add(new Repository(0, ""));
+		fromDB.add(new Repository(1, ""));
+		fromDB.add(new Repository(2, ""));
 		
 		
 		
@@ -49,7 +49,7 @@ public class GitHubRepoBrowserTest {
 		when(client.getProjects()).thenReturn(fromClient);
 		
 		
-		Project[] actual = sut.getAllProjects();
+		Repository[] actual = sut.getAllProjects();
 		
 		Assert.assertEquals(3, actual.length);
 		

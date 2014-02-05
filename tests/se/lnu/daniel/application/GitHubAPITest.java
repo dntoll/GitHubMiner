@@ -48,7 +48,7 @@ public class GitHubAPITest {
 	@Test
 	public void testGetRepositories() {
 		GitHubAPI sut = new GitHubAPI("key");
-		List<Project> p = sut.getRepositories(1);
+		List<Repository> p = sut.getRepositories(1);
 	}
 
 	/*@Test

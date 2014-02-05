@@ -46,7 +46,7 @@ public class ProjectDatabaseTest {
 	@Test
 	public void testGetProjects() throws IOException {
 		sut = new ProjectDatabase("test.csv");
-		List<Project> projects = sut.getProjects();
+		List<Repository> projects = sut.getProjects();
 		
 		assertEquals(3, projects.size());
 	}
@@ -54,14 +54,14 @@ public class ProjectDatabaseTest {
 	@Test
 	public void testGetLastID() throws IOException {
 		sut = new ProjectDatabase("test.csv");
-		List<Project> projects = sut.getProjects();
+		List<Repository> projects = sut.getProjects();
 		assertEquals(sut.getLastID(), 1);
 	}
 
 	@Test
 	public void testAddProjects() throws IOException {
 		sut = new ProjectDatabase("test.csv");
-		List<Project> projects = sut.getProjects();
+		List<Repository> projects = sut.getProjects();
 		
 		sut = new ProjectDatabase("test.csv");
 		sut.addProjects(projects);

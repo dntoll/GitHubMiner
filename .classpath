@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="javax.json-1.0.jar"/>
 	<classpathentry kind="lib" path="P:/2dv110/eclipsews/GitHubMiner/mockito-all-1.9.5.jar"/>
 	<classpathentry kind="lib" path="opencsv-2.3.jar"/>
+	<classpathentry kind="lib" path="commons-codec-1.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

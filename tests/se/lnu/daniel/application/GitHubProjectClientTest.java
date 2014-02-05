@@ -43,7 +43,7 @@ public class GitHubProjectClientTest {
 		when(db.getLastID()).thenReturn(lastId);
 		when(api.getRepositories(anyInt())).thenReturn(null);
 		
-		List<Project> actual = sut.getProjects();
+		List<Repository> actual = sut.getProjects();
 		
 		assertEquals(0, actual.size());
 		
@@ -62,12 +62,12 @@ public class GitHubProjectClientTest {
 		int lastId = 13;
 		when(db.getLastID()).thenReturn(lastId);
 		
-		List<Project> projects = new ArrayList<Project>();
-		projects.add(new Project(114, ""));
+		List<Repository> projects = new ArrayList<Repository>();
+		projects.add(new Repository(114, ""));
 		when(api.getRepositories(lastId)).thenReturn(projects);
 		when(api.getRepositories(114)).thenReturn(null);
 				
-		List<Project> actual = sut.getProjects();
+		List<Repository> actual = sut.getProjects();
 		
 		assertEquals(projects, actual);
 		
