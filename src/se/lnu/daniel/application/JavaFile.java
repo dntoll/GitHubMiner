@@ -1,6 +1,10 @@
 package se.lnu.daniel.application;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 public class JavaFile {
@@ -33,5 +37,36 @@ public class JavaFile {
 		out.print(content);
 		out.flush();
 	}
+
+	public static JavaFile getFromFile(File f) throws IOException {
+		FileReader fr = new FileReader(f);
+		
+		BufferedReader reader = new BufferedReader(fr);
+		String read;
+		StringBuilder content = new StringBuilder();
+		String URL = reader.readLine();
+		reader.readLine();
+		do {
+			read = reader.readLine();
+			if (read != null) {
+				content.append(read + "\n");
+			}
+			
+			
+		} while(read != null);
+		
+		fr.close();
+		String contentString = content.toString();
+		
+		JavaFile jf = new JavaFile(URL);
+		jf.setContent(contentString);
+		return jf;
+	}
+
+	public String getContent() {
+		return content;
+	}
+	
+	
 
 }

@@ -3,6 +3,8 @@ package se.lnu.daniel.application;
 import java.io.IOException;
 import java.util.Random;
 
+import javax.tools.JavaCompiler;
+
 import org.apache.http.client.ClientProtocolException;
 
 public class RandomJavaFileExtractor {
