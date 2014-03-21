@@ -9,12 +9,9 @@ import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
-import javax.json.JsonString;
 import javax.json.JsonStructure;
 import javax.json.JsonValue;
 
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 
@@ -52,7 +49,7 @@ public class JavaFileList {
 		JsonObject object = (JsonObject) val;
 		
 		String path = object.get("html_url").toString();
-		JsonString contentBase64 = (JsonString)object.get("content");
+		//JsonString contentBase64 = (JsonString)object.get("content");
 		
 		path = path.replaceAll("https://github", "https://raw.github");
 		path = path.replaceFirst("blob/", "");
