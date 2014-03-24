@@ -39,7 +39,7 @@ public class RandomJavaFileExtractor {
 	private static JavaFile getRandomJavaFile(String token,
 			GitHubClient client, Random random) throws ClientProtocolException,
 			IOException, Exception {
-		int randomNumber = random.nextInt(12000000);
+		int randomNumber = random.nextInt(17972500);
 		RepositoryList repoList = client.getRandomRepoList(randomNumber, token);
 		Repository randomProject = repoList.getRandomRepository(random);
 		
